@@ -39,7 +39,6 @@ import gtk
 import gtk.glade
 import gobject
 import signal
-import pygame
 
 class WorkRaveUnity:
     STATE_WORKING = 0
@@ -370,7 +369,6 @@ class WorkRaveUnity:
             self.break_progress.hide()
             self.button_postpone.hide()
             self.button_work.show()
-            self.play_sound(self.config.get("Sounds", "back-to-work"))
             return False
 
 
@@ -379,11 +377,6 @@ class WorkRaveUnity:
         self.menu_pospone.hide()
         self.reset_timer()
 
-    def play_sound(self, file):
-        if (os.path.isfile(file)):
-            pygame.init()
-            sound = pygame.mixer.Sound(file)
-            sound.play()
 
 
 
